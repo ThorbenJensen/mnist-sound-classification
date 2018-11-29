@@ -23,17 +23,14 @@ wavs_padded = [np.pad(wav, (max_length,), 'constant', constant_values=0)
                for wav in wavs]
 
 # %% FEATURE EXTRACTION
-
 mfccs = [librosa.feature.mfcc(y=wav_padded, sr=SAMPLING_RATE, n_mfcc=40)
          for wav_padded in wavs_padded]
 
 # %% DATA TO PANDAS
-
 digits = [recording.split('/')[-1].split('_')[0] for recording in recordings]
 
 df = pd.DataFrame({'digit': digits,
                    'mfcc': mfccs})
 
 # %% WRITE RESULTS
-
 df.to_parquet('data/df_preprocessed.parquet')
