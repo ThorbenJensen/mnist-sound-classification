@@ -1,0 +1,9 @@
+name: mnist-sound-classification
+dependencies:
+  - python=3.6
+  - pandas
+  - numpy
+  - pip
+  - pip:
+    - tensorflow
+    - librosa
