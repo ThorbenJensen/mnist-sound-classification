@@ -1,7 +1,8 @@
-import numpy as np
-import librosa
-import pandas as pd
 import glob
+
+import librosa
+import numpy as np
+import pandas as pd
 
 SAMPLING_RATE = 8000
 
@@ -33,4 +34,4 @@ df = pd.DataFrame({'digit': digits,
                    'mfcc': mfccs})
 
 # %% WRITE RESULTS
-df.to_parquet('data/df_preprocessed.parquet')
+df.to_pickle('data/df_preprocessed.pkl')
