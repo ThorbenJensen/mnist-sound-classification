@@ -1,5 +1,6 @@
-import wget
 import zipfile
+
+import wget
 
 # %% DOWNLOAD ZIP
 zip_source = \
@@ -10,6 +11,5 @@ zip_target = 'data/free-spoken-digit-dataset.zip'
 wget.download(url=zip_source, out=zip_target)
 
 # %% UNZIP
-
 with zipfile.ZipFile(zip_target,'r') as zip_ref:
     zip_ref.extractall('data/.')
