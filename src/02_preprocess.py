@@ -20,8 +20,9 @@ for rec in recordings:
 lengths = [len(wav) for wav in wavs]
 max_length = max(lengths)
 
-wavs_padded = [np.pad(wav, (max_length,), 'constant', constant_values=0)
-               for wav in wavs]
+wavs_padded = \
+    [np.pad(wav, (0, max_length - len(wav)), 'constant', constant_values=0)
+     for wav in wavs]
 
 # %% FEATURE EXTRACTION
 mfccs = [librosa.feature.mfcc(y=wav_padded, sr=SAMPLING_RATE, n_mfcc=40)
